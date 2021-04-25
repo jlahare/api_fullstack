@@ -8,6 +8,8 @@ var indexRouter = require('./routes/index');
 var personRouter = require('./routes/person');
 
 var app = express();
+app.set('port', process.env.PORT || 3002);
+
 const cors = require('cors');
 app.use(cors())
 // view engine setup
@@ -45,5 +47,6 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+app.listen(3002);
 
 module.exports = app;
